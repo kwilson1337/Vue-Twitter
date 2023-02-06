@@ -1,0 +1,52 @@
+.kw-button {
+    padding: rem(12px) rem(24px);
+    border-radius: 60px;
+    transition: $transition1;
+
+    &.--icon {
+        i {
+            padding-right: rem(10px);
+        }
+    }
+
+    &.--ghost {
+        background-color: transparent;
+        border: none;
+        
+        &:hover {
+            background-color: rgba($black, .1);
+        }
+    } 
+
+    &.--pill {
+        padding: rem(5px) rem(15px);
+        background-color: $color3;
+        color: $black;
+        font-weight: 700;
+        border: none;
+        transition: $transition1;
+
+        &:hover {
+            background-color: darken($color3, 5%);
+        }
+
+        &.--blue {
+            background-color: $color1;
+        }
+
+        &.--ghost {
+            background-color: transparent;
+            border: 1px solid $color3;
+            color: $white;
+
+            &:hover {
+                background-color: rgba($color3, .1);
+            }
+        }
+
+        &.--black {
+            background-color: $black;
+            color: $white;
+        }
+    }
+}

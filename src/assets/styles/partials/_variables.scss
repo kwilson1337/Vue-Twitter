@@ -1,0 +1,39 @@
+$color1: rgb(29, 155, 240);
+$color2: rgb(83, 100, 113);
+$color3: rgb(239, 243, 244);
+
+$black: rgb(15, 20, 25);
+$white: rgb(255, 255, 255);
+
+$transition1: .2s ease-in-out all;
+
+/**
+* Create classes
+**/
+$colors: (
+	"white": $white,
+	"black": $black,
+	"color1": $color1,
+	"color2": $color2,
+	"color3": $color3,	
+);
+
+// quick classes for color
+// --color-color1
+.--color {
+	@each $key, $val in $colors {
+		&-#{$key} {
+			color: $val !important;
+		}
+	}
+}
+
+// quick classes for bg colors
+// --bg-color1
+.--bg {
+	@each $key, $val in $colors {
+		&-#{$key} {
+			background: $val;
+		}
+	}
+}

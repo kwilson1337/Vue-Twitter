@@ -1,0 +1,41 @@
+.--border-left {
+    border-left: 1px solid $color3;
+}
+
+.--border-right {
+    border-right: 1px solid $color3;
+}
+
+.--border-top {
+    border-top: 1px solid $color3;
+} 
+
+.--border-bottom {
+    border-bottom: 1px solid $color3;
+} 
+
+.--border-all {
+    border: 1px solid $color3;
+}
+
+.--bg-cover {
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.--line-height-100 {
+    line-height: 100%;
+}
+
+.--margin-x-fix {
+    margin-left: -13px;
+    margin-right: -13px;
+}
+
+textarea {
+    &:disabled {
+        background-color: transparent;
+        border: none;
+    }
+}

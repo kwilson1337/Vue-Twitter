@@ -1,0 +1,79 @@
+/**
+* Feel free to add mixins. This is just a starting point.
+* Imported into globals.scss
+**/
+
+/**
+* Used for breaking change of division
+* New change math.div(num1, num2)
+**/
+@use "sass:math";
+
+/**
+* Rem calculator
+**/
+@function rem($pixels, $context: 16px) {
+	@if (unitless($pixels)) {
+		$pixels: $pixels * 1px;
+	}
+
+	@if (unitless($context)) {
+		$context: $context * 1px;
+	}
+
+	@return (math.div($pixels, $context)) * 1rem;
+}
+
+/**
+* Fluid type
+**/
+@mixin fluid-type($min-font-size: 15px, $max-font-size: 17px, $lower-range: 420px, $upper-range: 1200px) {
+	font-size: calc(#{rem($min-font-size)} + #{((math.div($max-font-size, ($max-font-size * 0 + 1))) - (math.div($min-font-size, ($min-font-size * 0 + 1))))} * ( (100vw - #{$lower-range}) / #{((math.div($upper-range, ($upper-range * 0 + 1))) - (math.div($lower-range, ($lower-range * 0 + 1))))}));
+
+    @media screen and (max-width: $lower-range) {
+        font-size: rem($min-font-size);
+    }
+
+    @media screen and (min-width: $upper-range){
+        font-size: rem($max-font-size);
+    }
+}
+
+/**
+* Media Queries
+* bootstrap break points: https://getbootstrap.com/docs/5.0/layout/breakpoints/
+* Default: max-width - subtract .02px via bootstrap calculations
+**/
+$xxs: 420px;
+$xs: 576px;
+$sm: 768px;
+$md: 991px;
+$lg: 1200px;
+$xl: 1920px;
+
+$breakpoints: (
+    'xxs' : $xxs,
+    'xs'  : $xs,
+    'sm'  : $sm,
+    'md'  : $md,
+    'lg'  : $lg,
+    'xl'  : $xl,
+);
+
+// usage: mq('sm') { ... }
+// usage: mq('sm', min) { ... }
+@mixin mq($width, $type: max) {
+   @if map_has_key($breakpoints, $width) {
+	   @if $type == max {
+			$width: map_get($breakpoints, $width);
+			@media only screen and (#{$type}-width: ($width - .02px)) {
+				@content;
+			}
+	   } @else {
+			$width: map_get($breakpoints, $width);
+			@media only screen and (#{$type}-width: $width) {
+				@content;
+			}
+	   }
+   }
+}

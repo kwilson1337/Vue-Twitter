@@ -1,0 +1,137 @@
+@import
+    './partials/index.scss',
+    './components/index.scss';
+
+.app-base {
+    height: 100vh;
+
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__inner {
+        flex: 1;
+
+        .row {
+            height: 100%;
+        }
+    }
+}
+
+.news-list {
+    padding-bottom: rem(100px);
+}
+
+.news-tabs {
+
+    &__flex {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        padding: 0px;        
+        margin: 0px;
+        padding: rem(0) 15px 0px;
+        overflow: auto;
+    }
+
+    &__single {
+        cursor: pointer;
+        font-size: rem(16px);
+        font-weight: 500;
+        position: relative;
+        padding-bottom: rem(15px);
+        color: $color2;
+        transition: $transition1;
+
+        & + .news-tabs__single {
+            margin-left: rem(30px);
+        }
+
+        &::after {
+            content: "";
+            transition: $transition1;
+        }
+
+        &.--active {
+            font-weight: 900;
+            color: $black;
+            
+            &::after {
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                bottom: 0px;
+                left: 0px;
+                background-color: $color1;
+                border-radius: 50px;
+            }
+        }
+    }
+}
+
+.news-item {
+    padding: rem(15px);
+    transition: $transition1;
+    margin: 0px -15px;
+    position: relative;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__action {
+        > div {
+            cursor: pointer;
+        }
+    }
+
+    &__pop-up {
+        position: absolute;
+        right: 45px;        
+        top: 10px;
+        border-radius: 12px;
+        background-color: $white;        
+        box-shadow: rgb(101 119 134 / 20%) 0px 0px 15px, rgb(101 119 134 / 15%) 0px 0px 3px 1px;
+        width: 200px;
+
+        span {
+            transition: $transition1;
+            padding: rem(10px) rem(5px);
+            text-align: center;
+            display: block;   
+            color: $black;         
+            font-weight: 700;
+            font-size: rem(13px);
+
+            &:hover {
+                background-color: rgba($black, .03);
+            }
+        }
+    }   
+
+    &__bottom-actions {
+        flex-basis: 100%;
+        padding-left: rem(75px);
+    }
+
+    a {
+        color: $black;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background-color: rgba($black, .03);
+    }
+
+    &.--no-click {            
+
+        &:hover {
+            background-color: $white;            
+        }        
+    }
+}

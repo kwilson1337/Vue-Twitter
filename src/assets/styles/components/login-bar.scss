@@ -1,0 +1,29 @@
+.login-bar {
+    position: fixed;
+    bottom: 0px;    
+    width: 100%;
+    background-color: $color1;    
+    color: $white;
+    box-shadow: rgb(101 119 134 / 20%) 0px 0px 15px, rgb(101 119 134 / 15%) 0px 0px 3px 1px;
+
+    .app-base & {
+        height: auto;
+    }
+    
+    &__flex {
+        padding: rem(15px) 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__actions {
+        
+        button {
+
+            & + button {
+                margin-left: rem(15px);
+            }
+        }
+    }
+}

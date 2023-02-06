@@ -1,0 +1,34 @@
+.header {
+    position: sticky;
+    top: 0px;
+    
+    &__inner {
+        padding: rem(15px) 0px 0px;
+    }
+
+    &__links {
+
+        a {                           
+            display: flex;
+            text-decoration: none;
+
+            & + a {
+                margin-top: rem(10px);
+            }
+
+            &.router-link-active {
+                font-weight: 700;
+
+                i {
+                    font-weight: 700;
+                }
+            }
+
+            div {
+                color: $black;                
+                font-weight: 600;
+                font-size: rem(18px);
+            }
+        }
+    }
+}

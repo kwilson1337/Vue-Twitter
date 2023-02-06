@@ -1,0 +1,29 @@
+.logo {
+
+    &__inner {       
+        transition: $transition1;        
+        border-radius: 60px;
+        padding: rem(10px);
+
+        &.--sm {
+            max-width: rem(60px);
+        }
+
+        &.--md {
+            max-width: rem(100px);
+        }
+
+        &.--lg {
+            max-width: rem(120px);
+        }
+
+        &:hover {
+            background-color: rgba($color1, .1);
+        }
+    }
+
+    svg {
+        fill: $color1;
+        width: 100%;        
+    }
+}
